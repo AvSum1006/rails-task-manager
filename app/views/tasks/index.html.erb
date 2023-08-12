@@ -1,0 +1,14 @@
+<div class="d-flex flex-column p-5 justify-content-center text-center">
+  <h1 class="mb-3 p-2 border bg-light">My Tasks</h1>
+  <div class="">
+    <% @tasks.each do |task| %>
+      <div class="border shadow p-3 mb-3 bg-white rounded">
+      <input class= "p-3 h2" type="checkbox" name="tast" value="<%= task.title %>" <%= "checked" if task.completed == true %>>
+      <label class= "p-3" for="<%= task.title %>"><%= link_to task.title, task_path(task), class: "link h3 link-dark" %>
+        <%= link_to 'Delete', task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "p-3 link-danger" %>
+        </label>
+        </div>
+    <% end %>
+  </div>
+  <%= link_to 'Add a new task', new_task_path, class: "btn btn-primary w-250" %>
+</div>

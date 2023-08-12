@@ -1,0 +1,17 @@
+<div class="d-flex flex-column p-5 justify-content-center text-center">
+<h1 class="mb-3 p-2 border bg-light">Edit Task</h1>
+<div class="p-3">
+  <%= form_with model: @task do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :details %>
+    <%= f.text_field :details %>
+    <%= f.label :completed %>
+    <%= f.check_box :completed %>
+    <%= f.submit %>
+  <% end %>
+</div>
+  <div class="align-center p-3">
+    <%= link_to 'Back to Index', tasks_path, class: "btn btn-secondary w-15 p-2" %>
+  </div>
+</div>
